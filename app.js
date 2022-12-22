@@ -1,23 +1,15 @@
-//return하는 순간 function은 종료된다.
-const calculator={
-    plus: function(a, b){
-        return a+b
-    },
-    minus: function(a, b){
-        return a-b
-    },
-}
+const age = parseInt(prompt("How old are you?"));
 
-//variable인 plusResult는 function의 return값을 가지게 된다.
-//return을 정의하는 것.
-const plusResult = calculator.plus(2, 3);
-
-//예제2
-function calculateKrAge(foreignerAge){
-    foreignerAge+2;
-    return "Hello";
-}
-
-const krAge = calculateKrAge(24);
-
-console.log(krAge);
+if(isNaN(age) || age < 0){
+    console.log("Please write a real positive number.");
+} else if(age<18){
+    console.log("You are too young...");
+} else if(age>=18 && age<=50){
+    console.log("You can drink!")
+} else if(age>50 && age<=65){
+    console.log("You should exercise...");
+} else if(age===100){
+    console.log("WOW you are wise.")
+}  else if(age>65){
+    console.log("You can do everything, hahaha!");
+} 
