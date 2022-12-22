@@ -1,45 +1,39 @@
-alert("hellooo");
-
-/* type */
-
-const a = 3
-const b = 45
-let userName = "niiico"
-/* variable */
-
-console.log(a+b);
-console.log("hello " + userName);
-
-userName = "nicolas";
-console.log("hi how are you, " + userName + "?");
-
-let doesUserLogIn = false;
-const amIFat = null;
-let something;
-console.log(doesUserLogIn, amIFat, something);
-/* null 은 '비어있어요'를 의도적으로 표현하는 것 */
-
-//array//
-const toBuy = ["apple", "potato", "curry"];
-toBuy.push("kimbop");
-
-console.log(toBuy[3]);
-console.log(toBuy);
-
-//아래의 player는 object이다.//
-const player = {
-    name: "nico",
-    score: 123,
-    fat: false
+//personName이라는 거는 sayHello라는 function의 body 안에서만 사용 가능하다.
+function sayHello(personName){
+    console.log(personName);
 };
 
-console.log(player);
-console.log(player.name);
-console.log(player["name"]);
-//player는 object라서 요소 수정 및 추가할 수 있다.//
-player.name = "korea Nicolas";
-player.favoriteFood = "kimchi";
-console.log(player);
+sayHello("nico");
 
-player.score = player.score + 77;
-console.log(player.score);
+//player를 object라고 하고, sayHello는 function이자 property라고 한다.
+//const abc = 10 라고 했을때, abc를 variable이라고 한다.
+const player={
+    sayHello: function(nameOfPerson){
+        console.log("Hello " + nameOfPerson +" Nice to meet you!")
+    }
+}
+//"nicolas"를 argument 라고 한다.//
+player.sayHello("nicolas");
+
+//예제//
+//순서 중요!
+
+const calculator = {
+    plus: function(a, b){
+        console.log(a+b);
+    },
+    minus: function(a, b){
+        console.log(a-b);
+    },
+    divide: function(a, b){
+        console.log(a/b);
+    },
+    powerOf: function(a, b){
+        console.log(a**b);
+    }
+}
+
+calculator.plus(2,5);
+calculator.minus(2,5);
+calculator.divide(2,5);
+calculator.powerOf(2,5);
