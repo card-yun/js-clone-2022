@@ -1,3 +1,11 @@
 body{
     background-color: beige;
 }
+
+.font-cool{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.clicked{
+    color: aqua;
+}

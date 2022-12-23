@@ -1,41 +1,12 @@
-//정의 --- 불러오기
-const title = document.querySelector(".title h1");
+/* Step N.01 Find the element
+    Step N.02 Listen the event
+    Step N.03 React the event */
 
-function whenClickTitle(){
-    title.style.color="red";
+
+const title = document.querySelector("#h1container h1");
+
+function clickTitleEvent(){
+    title.classList.toggle("clicked")
 }
 
-function whenMouseEnter(){
-    title.innerText="Mouse is on!";
-}
-
-function whenMouseLeave(){
-    title.innerText="Mouse is gone...";
-}
-
-//h1 html element mdn --HTMLHeadingElement-Web APIs
-title.addEventListener("click", whenClickTitle);
-title.addEventListener("mouseenter", whenMouseEnter);
-title.addEventListener("mouseleave", whenMouseLeave);
-
-function handleResize(){
-    document.body.style.backgroundColor="skyblue";
-}
-
-function handleWindowCopy(){
-    alert("copied!");
-}
-
-function handleWindowOffline(){
-    alert("Please connect the Wifi");
-}
-
-function handleWindowOnline(){
-    alert("Wifi Connected!!");
-}
-
-window.addEventListener("resize", handleResize);
-window.addEventListener("copy", handleWindowCopy);
-window.addEventListener("offline", handleWindowOffline);
-window.addEventListener("online", handleWindowOnline);
-
+title.addEventListener("click", clickTitleEvent)
