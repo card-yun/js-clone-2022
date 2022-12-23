@@ -1,19 +1,41 @@
-/*js가 html을 가져올 수 있다.
-app.js를 import했기 때문에 document(검색창)가 존재할 수 있다.
---내 html과 app.js가 연결 됨--
-browser가 우리가 document 에 접근할 수 있게 해준다.*/
-//ID랑 Class로 가져오기: getElementById/ClassNmae
-const innerBox = document.getElementById("inputBox");
-console.dir(innerBox);
+//정의 --- 불러오기
+const title = document.querySelector(".title h1");
 
-const borderBox = document.getElementById("submitBox");
-console.dir(borderBox);
+function whenClickTitle(){
+    title.style.color="red";
+}
 
-//CSS처럼 Selector
-const title = document.querySelector(".hello h1:first-child");
-console.log(title);
+function whenMouseEnter(){
+    title.innerText="Mouse is on!";
+}
 
-title.style.color="blue";
+function whenMouseLeave(){
+    title.innerText="Mouse is gone...";
+}
 
-const test = document.querySelector("#abcd");
-console.log(test);
+//h1 html element mdn --HTMLHeadingElement-Web APIs
+title.addEventListener("click", whenClickTitle);
+title.addEventListener("mouseenter", whenMouseEnter);
+title.addEventListener("mouseleave", whenMouseLeave);
+
+function handleResize(){
+    document.body.style.backgroundColor="skyblue";
+}
+
+function handleWindowCopy(){
+    alert("copied!");
+}
+
+function handleWindowOffline(){
+    alert("Please connect the Wifi");
+}
+
+function handleWindowOnline(){
+    alert("Wifi Connected!!");
+}
+
+window.addEventListener("resize", handleResize);
+window.addEventListener("copy", handleWindowCopy);
+window.addEventListener("offline", handleWindowOffline);
+window.addEventListener("online", handleWindowOnline);
+
