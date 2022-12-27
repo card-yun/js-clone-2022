@@ -1,12 +1,29 @@
-/* Step N.01 Find the element
-    Step N.02 Listen the event
-    Step N.03 React the event */
+const logInForm = document.querySelector("#logInForm")
+const logInInput = document.querySelector("#logInForm input:first-child")
 
+const greeting = document.querySelector("h1")
 
-const title = document.querySelector("#h1container h1");
+const HIDDEN_CLASSNAME = "hidden";
+const USERNAME_KEY = "storage";
 
-function clickTitleEvent(){
-    title.classList.toggle("clicked")
+function handleLogInSubmit(event){
+    event.preventDefault()
+    logInForm.classList.add(HIDDEN_CLASSNAME);
+    const username = logInInput.value;
+    localStorage.setItem(USERNAME_KEY, username);
+    appearUsername(username);
 }
 
-title.addEventListener("click", clickTitleEvent)
+function appearUsername(argument){
+    greeting.classList.remove(HIDDEN_CLASSNAME);
+    greeting.innerText = `Hello ${argument}` ;
+}
+
+const savedUsername = localStorage.getItem(USERNAME_KEY);
+
+if(savedUsername === null){
+    logInForm.classList.remove(HIDDEN_CLASSNAME);
+    logInForm.addEventListener("submit", handleLogInSubmit);
+} else {
+    appearUsername(savedUsername);
+}
